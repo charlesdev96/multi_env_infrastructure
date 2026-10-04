@@ -1,0 +1,11 @@
+# Fill in state_bucket_name / dynamodb_table with the outputs from
+# bootstrap/state-backend after you've applied it once.
+terraform {
+  backend "s3" {
+    bucket         = "REPLACE-WITH-YOUR-STATE-BUCKET-NAME"
+    key            = "environments/dev/terraform.tfstate"
+    region         = "us-east-1"
+    dynamodb_table = "terraform-locks"
+    encrypt        = true
+  }
+}
